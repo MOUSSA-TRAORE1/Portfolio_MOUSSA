@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moussa Traore — Computer Engineering Student</title>
+<meta name="description" content="Portfolio of Moussa Traore, Computer Engineering student focused on Software Engineering and AI.">
+
+<!-- ============================================================
+  EDIT-ME QUICK GUIDE
+  Real contact info (email, LinkedIn, GitHub, location) is already
+  wired in from your CV. Open items, each marked "EDIT:" in the file:
+    1. CV file      -> upload as cv.pdf next to this HTML file
+    2. OT TechX      -> mission/products/role still placeholder text
+    3. More Projects -> real details for Image Processing, and confirm
+       the Java card game / database project descriptions
+    4. Project links -> repo/demo URLs
+=============================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#F6F5F0;
+    --paper-raised:#FFFFFF;
+    --ink:#1C1E1B;
+    --ink-soft:#4A4C46;
+    --muted:#84837A;
+    --line:#DEDCD2;
+    --accent:#2F5D50;
+    --accent-soft:#E4EBE8;
+    --accent-ink:#1E3D34;
+    --radius:10px;
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Sora', sans-serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  a{color:inherit; text-decoration:none;}
+  ul{margin:0; padding:0; list-style:none;}
+  img{max-width:100%; display:block;}
+  button{font-family:inherit;}
+
+  :focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+  }
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  @media (max-width:640px){
+    .wrap{padding:0 20px;}
+  }
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(246,245,240,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:18px 32px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .nav-name{
+    font-family:'Sora', sans-serif;
+    font-weight:600;
+    font-size:15px;
+    letter-spacing:0.02em;
+  }
+  .nav-links{
+    display:flex;
+    gap:28px;
+    font-size:14.5px;
+    color:var(--ink-soft);
+  }
+  .nav-links a{
+    padding:4px 0;
+    border-bottom:1px solid transparent;
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .nav-links a:hover{
+    color:var(--ink);
+    border-bottom-color:var(--accent);
+  }
+  .nav-toggle{display:none;}
+  @media (max-width:760px){
+    .nav-links{
+      position:fixed;
+      top:60px; left:0; right:0;
+      background:var(--paper-raised);
+      border-bottom:1px solid var(--line);
+      flex-direction:column;
+      gap:0;
+      padding:8px 20px 16px;
+      display:none;
+    }
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:12px 0; border-bottom:1px solid var(--line);}
+    .nav-toggle{
+      display:block;
+      background:none;
+      border:1px solid var(--line);
+      border-radius:8px;
+      width:38px; height:34px;
+      cursor:pointer;
+    }
+    .nav-toggle span{
+      display:block;
+      width:16px; height:2px;
+      background:var(--ink);
+      margin:3px auto;
+    }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:88px 0 64px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:56px;
+    align-items:end;
+  }
+  .eyebrow-role{
+    color:var(--accent-ink);
+    font-size:15px;
+    font-weight:500;
+    margin-bottom:14px;
+  }
+  .hero h1{
+    font-size:clamp(38px, 5.4vw, 60px);
+    line-height:1.04;
+    max-width:11ch;
+  }
+  .hero-lede{
+    margin-top:22px;
+    font-size:18px;
+    color:var(--ink-soft);
+    max-width:46ch;
+  }
+  .hero-actions{
+    display:flex;
+    gap:12px;
+    margin-top:32px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 20px;
+    border-radius:8px;
+    font-size:14.5px;
+    font-weight:500;
+    border:1px solid var(--ink);
+    transition:transform .15s ease, background .15s ease, color .15s ease;
+  }
+  .btn-solid{
+    background:var(--ink);
+    color:var(--paper);
+  }
+  .btn-solid:hover{background:var(--accent); border-color:var(--accent);}
+  .btn-outline{
+    background:transparent;
+    color:var(--ink);
+    border:1px solid var(--line);
+  }
+  .btn-outline:hover{border-color:var(--ink);}
+
+  .hero-side{
+    border-left:1px solid var(--line);
+    padding-left:32px;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+  }
+  .stat-num{
+    font-family:'Sora', sans-serif;
+    font-size:26px;
+    font-weight:600;
+  }
+  .stat-label{
+    font-size:13px;
+    color:var(--muted);
+    margin-top:2px;
+  }
+  @media (max-width:800px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-side{
+      border-left:none;
+      border-top:1px solid var(--line);
+      padding-left:0;
+      padding-top:24px;
+      flex-direction:row;
+      flex-wrap:wrap;
+      gap:28px;
+    }
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{
+    padding:76px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:24px;
+    margin-bottom:40px;
+  }
+  .section-head h2{
+    font-size:28px;
+  }
+  .section-note{
+    color:var(--muted);
+    font-size:14.5px;
+    max-width:34ch;
+    text-align:right;
+  }
+  @media (max-width:640px){
+    .section-head{flex-direction:column; align-items:flex-start; gap:8px;}
+    .section-note{text-align:left;}
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:56px;
+  }
+  .about-grid p{
+    font-size:16.5px;
+    color:var(--ink-soft);
+    max-width:56ch;
+  }
+  .about-grid p + p{margin-top:16px;}
+  .about-facts{
+    border-top:1px solid var(--line);
+  }
+  .fact-row{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    font-size:14.5px;
+  }
+  .fact-row dt{color:var(--muted);}
+  .fact-row dd{margin:0; font-weight:500; text-align:right;}
+  @media (max-width:800px){
+    .about-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .timeline{
+    border-top:1px solid var(--line);
+  }
+  .tl-item{
+    display:grid;
+    grid-template-columns:140px 1fr;
+    gap:24px;
+    padding:26px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .tl-date{
+    color:var(--muted);
+    font-size:14px;
+    padding-top:2px;
+  }
+  .tl-role{font-size:17px; font-weight:600;}
+  .tl-org{color:var(--accent-ink); font-size:14.5px; margin-top:2px;}
+  .tl-desc{color:var(--ink-soft); font-size:15px; margin-top:8px; max-width:58ch;}
+  @media (max-width:640px){
+    .tl-item{grid-template-columns:1fr; gap:6px;}
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .project-hero{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:var(--paper-raised);
+    overflow:hidden;
+    display:grid;
+    grid-template-columns:1.05fr 1fr;
+  }
+  .project-hero-media{
+    background:var(--accent-soft);
+    padding:32px;
+    display:flex;
+    align-items:center;
+  }
+  .project-hero-body{
+    padding:36px 40px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .tag{
+    display:inline-block;
+    font-size:12.5px;
+    font-weight:500;
+    color:var(--accent-ink);
+    background:var(--accent-soft);
+    border-radius:6px;
+    padding:4px 10px;
+    width:fit-content;
+  }
+  .tag-dev{
+    color:#8A5A22;
+    background:#F3E7D4;
+  }
+  .project-hero-body h3{font-size:24px;}
+  .project-kicker{color:var(--muted); font-size:14.5px;}
+  .project-desc{color:var(--ink-soft); font-size:15.5px; max-width:52ch;}
+  .stack-line{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    padding-top:10px;
+    border-top:1px solid var(--line);
+  }
+  .stack-line b{color:var(--ink); font-weight:500;}
+  .card-actions{display:flex; gap:10px; margin-top:6px;}
+  .card-actions .btn{padding:9px 16px; font-size:13.5px;}
+
+  @media (max-width:800px){
+    .project-hero{grid-template-columns:1fr;}
+  }
+
+  /* architecture diagram */
+  .flow{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    align-items:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+  }
+  .flow-node{
+    background:var(--paper-raised);
+    border:1px solid var(--accent);
+    color:var(--accent-ink);
+    border-radius:6px;
+    padding:8px 11px;
+  }
+  .flow-arrow{color:var(--accent); font-size:14px;}
+
+  .project-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+    margin-top:24px;
+  }
+  .project-card{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:var(--paper-raised);
+    padding:28px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .stage-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+    font-size:14px;
+  }
+  .stage-grid dt{font-weight:600; font-size:13px;}
+  .stage-grid dd{margin:2px 0 0; color:var(--ink-soft);}
+
+  .mips-demo{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    background:var(--ink);
+    color:#EDEAE0;
+    border-radius:8px;
+    padding:16px 18px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .mips-demo .step-label{color:#8FBBAE; font-size:11px; letter-spacing:0.03em;}
+  .mips-demo .arrow-down{color:#6E8F84; font-size:13px;}
+
+  @media (max-width:760px){
+    .project-row{grid-template-columns:1fr;}
+  }
+  .project-row-3{grid-template-columns:1fr 1fr 1fr;}
+  @media (max-width:860px){
+    .project-row-3{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:560px){
+    .project-row-3{grid-template-columns:1fr;}
+  }
+
+  .embedded-strip{
+    margin-top:24px;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:var(--paper-raised);
+    padding:28px;
+  }
+  .embedded-strip .project-desc{margin-bottom:14px;}
+  .chip-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .chip{
+    font-size:13px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:6px 13px;
+    color:var(--ink-soft);
+  }
+  .photo-note{
+    margin-top:16px;
+    font-size:13px;
+    color:var(--muted);
+    border-top:1px dashed var(--line);
+    padding-top:12px;
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:32px 40px;
+  }
+  .skill-group h4{font-size:14px; color:var(--muted); font-weight:500; margin-bottom:10px;}
+  .skill-list{display:flex; flex-wrap:wrap; gap:8px;}
+  .skill-item{
+    font-size:14px;
+    border:1px solid var(--line);
+    border-radius:7px;
+    padding:6px 11px;
+    background:var(--paper-raised);
+  }
+  @media (max-width:760px){
+    .skills-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:480px){
+    .skills-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- LEADERSHIP ---------- */
+  .leader-card{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:24px;
+    align-items:flex-start;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:var(--paper-raised);
+    padding:32px;
+  }
+  .leader-mark{
+    width:52px; height:52px;
+    border-radius:50%;
+    background:var(--accent-soft);
+    color:var(--accent-ink);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Sora', sans-serif;
+    font-weight:600;
+    font-size:18px;
+  }
+  .leader-card h3{font-size:19px;}
+  .leader-org{color:var(--accent-ink); font-size:14.5px; margin-top:2px;}
+  .leader-desc{color:var(--ink-soft); font-size:15px; margin-top:10px; max-width:56ch;}
+
+  #beyond .skill-group h4{font-size:16px; color:var(--ink); font-weight:600; margin-bottom:8px;}
+  #beyond .skill-group{border:1px solid var(--line); border-radius:var(--radius); padding:22px; background:var(--paper-raised);}
+
+  /* ---------- CONTACT ---------- */
+  #contact{border-bottom:none;}
+  .contact-inner{
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:40px;
+    align-items:center;
+  }
+  .contact-inner h2{font-size:30px; max-width:14ch;}
+  .contact-lede{color:var(--ink-soft); margin-top:14px; max-width:44ch;}
+  .contact-list{display:flex; flex-direction:column; gap:2px;}
+  .contact-list a{
+    display:flex;
+    justify-content:space-between;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+    font-size:15.5px;
+    transition:color .15s ease;
+  }
+  .contact-list a:hover{color:var(--accent-ink);}
+  .contact-list span:last-child{color:var(--muted); font-size:14px;}
+  @media (max-width:760px){
+    .contact-inner{grid-template-columns:1fr;}
+  }
+
+  footer{
+    padding:28px 0 40px;
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    color:var(--muted);
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-name">Moussa Traore</div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#beyond">Beyond</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow-role">Computer Engineering Student · Software Engineering &amp; AI</div>
+        <h1>Moussa Traore</h1>
+        <p class="hero-lede">
+          I build software and AI systems end to end — from retrieval-augmented
+          learning tools down to the instruction-level mechanics of a processor.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="#projects">View my projects</a>
+          <a class="btn btn-outline" href="https://github.com/MOUSSA-TRAORE1" target="_blank" rel="noopener">GitHub</a>
+          <!-- EDIT: cv.pdf — upload your CV with this exact filename, or change the path -->
+          <a class="btn btn-outline" href="Moussa-Traore-CV_New (1).docx" download>Download CV</a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div>
+          <div class="stat-num">3.90 / 4.00</div>
+          <div class="stat-label">GPA</div>
+        </div>
+        <div>
+          <div class="stat-num">Full Scholarship</div>
+          <div class="stat-label">Antalya Bilim University</div>
+        </div>
+        <div>
+          <div class="stat-num">Final Year</div>
+          <div class="stat-label">Computer Engineering</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>About</h2>
+        <p class="section-note">Where the engineering fundamentals meet the AI work.</p>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p>
+            I'm a final-year Computer Engineering student at Antalya Bilim University,
+            studying on a full scholarship. My work sits between two layers of the stack:
+            low-level systems — instruction sets, embedded microcontrollers, digital logic —
+            and applied AI, mainly retrieval-augmented systems built with LLMs.
+          </p>
+          <p>
+            Outside coursework, I've contributed to an AI-powered HR onboarding product at
+            NOOVOY AI and worked as a software development intern at Evrensel Bilişim. I also
+            lead the Antalya Malian Student Association, which has taught me as much about
+            coordinating people as any lab has taught me about coordinating systems.
+          </p>
+        </div>
+        <dl class="about-facts">
+          <div class="fact-row"><dt>Based in</dt><dd>Antalya, Türkiye</dd></div>
+          <div class="fact-row"><dt>Degree</dt><dd>B.Sc. Computer Engineering, Final Year</dd></div>
+          <div class="fact-row"><dt>University</dt><dd>Antalya Bilim University</dd></div>
+          <div class="fact-row"><dt>GPA</dt><dd>3.90 / 4.00</dd></div>
+          <div class="fact-row"><dt>Scholarship</dt><dd>Full Scholarship</dd></div>
+          <div class="fact-row"><dt>Focus</dt><dd>Software Engineering &amp; AI</dd></div>
+          <div class="fact-row"><dt>Languages</dt><dd>French · Bambara · English · Turkish</dd></div>
+          <div class="fact-row"><dt>Coursework</dt><dd style="text-align:left; max-width:60%;">Data Structures · Algorithms · OOP · Software Engineering · Database Systems · OS · Computer Architecture · Web Programming</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Experience</h2>
+        <p class="section-note">Full role details are in the CV.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-date">2026</div>
+          <div>
+            <div class="tl-role">AI Project Contributor</div>
+            <div class="tl-org">NOOVOY AI</div>
+            <p class="tl-desc">Contributed to an AI-powered HR onboarding product, working on LLM-based workflows, retrieval-augmented generation, and system architecture and prototyping.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Jul – Aug 2026</div>
+          <div>
+            <div class="tl-role">Software Development Intern</div>
+            <div class="tl-org">Evrensel Bilişim</div>
+            <p class="tl-desc">Worked across programming, debugging, and version control as part of a professional development workflow.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Featured Projects</h2>
+        <p class="section-note">Four projects spanning applied AI, product thinking, and computer architecture.</p>
+      </div>
+
+      <!-- Project 1: AI Study Assistant -->
+      <div class="project-hero">
+        <div class="project-hero-media">
+          <div class="flow">
+            <span class="flow-node">PDF</span><span class="flow-arrow">→</span>
+            <span class="flow-node">Extraction</span><span class="flow-arrow">→</span>
+            <span class="flow-node">Chunking</span><span class="flow-arrow">→</span>
+            <span class="flow-node">Embeddings</span><span class="flow-arrow">→</span>
+            <span class="flow-node">ChromaDB</span><span class="flow-arrow">→</span>
+            <span class="flow-node">Retrieval</span><span class="flow-arrow">→</span>
+            <span class="flow-node">LLM</span><span class="flow-arrow">→</span>
+            <span class="flow-node">Answer + Sources</span>
+          </div>
+        </div>
+        <div class="project-hero-body">
+          <span class="tag">Featured</span>
+          <h3>AI Study Assistant</h3>
+          <div class="project-kicker">RAG-Based Learning Application</div>
+          <p class="project-desc">
+            An AI-powered study platform that lets students interact with and learn from
+            their own documents using retrieval-augmented generation — every answer is
+            grounded in, and cited back to, the source material.
+          </p>
+          <div class="stack-line"><b>Stack:</b> Python · LangChain · ChromaDB · Hugging Face · Streamlit</div>
+          <div class="card-actions">
+            <!-- EDIT: link to a live demo if you have one, or remove this button -->
+            <a class="btn btn-solid" href="#" target="_blank" rel="noopener">View project</a>
+            <!-- EDIT: project link — confirm this is the right repo -->
+            <a class="btn btn-outline" href="https://github.com/MOUSSA-TRAORE1/ai-study-assistant" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 + 3 -->
+      <div class="project-row">
+        <div class="project-card">
+          <span class="tag tag-dev">In Development</span>
+          <h3>OpporTrack</h3>
+          <p class="project-desc">
+            A personalized opportunity-discovery platform bringing scholarships,
+            internships, jobs, competitions, conferences, and programs into one place.
+          </p>
+          <dl class="stage-grid">
+            <dt>Problem</dt>
+            <dd>Opportunities are scattered across many separate websites and platforms.</dd>
+            <dt>Idea</dt>
+            <dd>One platform that discovers and organizes relevant opportunities based on a user's profile and interests.</dd>
+            <dt>Current stage</dt>
+            <dd>Requirements analysis · Feature definition · System architecture</dd>
+          </dl>
+          <div class="card-actions">
+            <!-- EDIT: link to repo/design doc, or remove -->
+            <a class="btn btn-outline" href="#" target="_blank" rel="noopener">View project →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <span class="tag">Systems</span>
+          <h3>MIPS Assembler</h3>
+          <p class="project-desc">
+            A converter that parses MIPS assembly instructions and translates them
+            into binary machine code — built to understand instruction encoding from
+            the ground up.
+          </p>
+          <div class="mips-demo">
+            <div><span class="step-label">INPUT</span><br>add $t0, $t1, $t2</div>
+            <div class="arrow-down">↓ instruction parsing</div>
+            <div><span class="step-label">OUTPUT</span><br>000000 01001 01010 01000 00000 100000</div>
+          </div>
+          <div class="stack-line"><b>Stack:</b> Java · MIPS ISA</div>
+          <div class="card-actions">
+            <!-- EDIT: project link — confirm this is the right repo -->
+            <a class="btn btn-outline" href="https://github.com/MOUSSA-TRAORE1/mips-assembler" target="_blank" rel="noopener">GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4: Embedded -->
+      <div class="embedded-strip">
+        <span class="tag">Hardware</span>
+        <h3 style="margin-top:10px;">8051 Embedded Systems Projects</h3>
+        <p class="project-desc" style="margin-top:8px;">
+          A set of microcontroller projects built on the 8051, covering display
+          interfacing, user input, analog sensing, and timing.
+        </p>
+        <div class="chip-row">
+          <span class="chip">LCD interfacing</span>
+          <span class="chip">Keypad</span>
+          <span class="chip">ADC</span>
+          <span class="chip">Timers</span>
+          <span class="chip">Interrupts</span>
+        </div>
+        <p class="photo-note">
+          Add your own board/setup photos here — swap the placeholder area above for
+          an &lt;img&gt; tag pointing at your photo files once you upload them.
+        </p>
+      </div>
+
+      <div class="section-head" style="margin-top:48px;">
+        <h2 style="font-size:20px;">More Projects</h2>
+      </div>
+      <div class="project-row project-row-3">
+          <h3 style="font-size:17px;">Java Poker-Style Card Game</h3>
+          <p class="project-desc">A card game built with Java Swing, applying OOP design.</p>
+          <div class="stack-line"><b>Stack:</b> Java · Swing · OOP</div>
+          <div class="card-actions">
+            <!-- EDIT: project link -->
+            <a class="btn btn-outline" href="#" target="_blank" rel="noopener">View →</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <span class="tag">Academic</span>
+          <h3 style="font-size:17px;">Image Processing</h3>
+          <!-- EDIT: more projects — add the real description once decided -->
+          <p class="project-desc">Academic project — details to be added.</p>
+          <div class="card-actions">
+            <a class="btn btn-outline" href="#" target="_blank" rel="noopener">View →</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <span class="tag">Database</span>
+          <h3 style="font-size:17px;">Database Projects</h3>
+          <p class="project-desc">SQL projects covering database design, joins, subqueries, views, and stored procedures.</p>
+          <div class="stack-line"><b>Stack:</b> SQL</div>
+          <div class="card-actions">
+            <a class="btn btn-outline" href="#" target="_blank" rel="noopener">View →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Skills</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h4>Languages</h4>
+          <div class="skill-list">
+            <span class="skill-item">Java</span><span class="skill-item">Python</span>
+            <span class="skill-item">C / C++</span><span class="skill-item">SQL</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>AI</h4>
+          <div class="skill-list">
+            <span class="skill-item">RAG</span><span class="skill-item">LLMs</span>
+            <span class="skill-item">Embeddings</span><span class="skill-item">Semantic Retrieval</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Software</h4>
+          <div class="skill-list">
+            <span class="skill-item">OOP</span><span class="skill-item">REST</span>
+            <span class="skill-item">Git / GitHub</span><span class="skill-item">Debugging</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Databases</h4>
+          <div class="skill-list">
+            <span class="skill-item">SQL Server</span><span class="skill-item">MySQL</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Embedded</h4>
+          <div class="skill-list">
+            <span class="skill-item">8051</span><span class="skill-item">ADC</span>
+            <span class="skill-item">LCD</span><span class="skill-item">Keypad</span>
+            <span class="skill-item">Timers</span><span class="skill-item">Interrupts</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Tools</h4>
+          <div class="skill-list">
+            <span class="skill-item">Linux</span><span class="skill-item">IntelliJ</span>
+            <span class="skill-item">VS Code</span><span class="skill-item">MATLAB</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LEADERSHIP ================= -->
+  <section id="leadership">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Leadership &amp; Entrepreneurship</h2>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <div class="leader-card">
+          <div class="leader-mark">OT</div>
+          <div>
+            <h3>Founder &amp; President — OT TechX</h3>
+            <div class="leader-org">Technology · Computer Engineering · Products &amp; Services</div>
+            <!-- EDIT: OT TechX — replace with the real mission/products/role once you confirm them -->
+            <p class="leader-desc">
+              Founded OT TechX as a technology initiative focused on products and services
+              in technology and computer engineering. This section will expand with its
+              mission, actual products or services, and my specific role as it develops.
+            </p>
+          </div>
+        </div>
+        <div class="leader-card">
+          <div class="leader-mark">AM</div>
+          <div>
+            <h3>President — Antalya Malian Student Association</h3>
+            <div class="leader-org">Leadership · Communication · Coordination · Teamwork</div>
+            <p class="leader-desc">
+              Lead and coordinate organizational activities and initiatives, organize events,
+              and collaborate with team members on planning and execution.
+            </p>
+          </div>
+        </div>
+        <div class="leader-card">
+          <div class="leader-mark">OP</div>
+          <div>
+            <h3>Member — Optica</h3>
+            <div class="leader-org">Optics &amp; Photonics Organization</div>
+            <p class="leader-desc">
+              Engage in scientific and technical community activities and learning
+              initiatives related to technology and engineering.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BEYOND ENGINEERING ================= -->
+  <section id="beyond">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Beyond Engineering</h2>
+        <p class="section-note">What keeps me curious, active, and connected outside technology.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h4>⚽ Football</h4>
+          <p class="project-desc">Staying active, enjoying teamwork and competition.</p>
+        </div>
+        <div class="skill-group">
+          <h4>🌍 Travel</h4>
+          <p class="project-desc">Discovering new places, environments, and cultures.</p>
+        </div>
+        <div class="skill-group">
+          <h4>📖 Reading</h4>
+          <p class="project-desc">Learning beyond coursework and exploring new ideas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact">
+    <div class="wrap contact-inner">
+      <div>
+        <h2>Let's work together.</h2>
+        <p class="contact-lede">
+          I'm looking for internship and graduate opportunities in software
+          engineering and applied AI. Reach out through any of these.
+        </p>
+      </div>
+      <div class="contact-list">
+        <a href="mailto:moussatraore8490@gmail.com">
+          <span>Email</span><span>moussatraore8490@gmail.com</span>
+        </a>
+        <a href="https://www.linkedin.com/in/moussa-traoré-3023972a8" target="_blank" rel="noopener">
+          <span>LinkedIn</span><span>in/moussa-traoré-3023972a8</span>
+        </a>
+        <a href="https://github.com/MOUSSA-TRAORE1" target="_blank" rel="noopener">
+          <span>GitHub</span><span>MOUSSA-TRAORE1</span>
+        </a>
+        <a href="#">
+          <span>Location</span><span>Antalya, Türkiye</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span>Moussa Traore © 2026</span>
+  <span>Built with care, one section at a time.</span>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
+</html>
